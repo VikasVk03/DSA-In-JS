@@ -93,19 +93,21 @@ function DeletionFirstOccurrence(array, element) {
 // DeletionFirstOccurrence([1, 2, 3, 4, 5, 6, 7, 2, 35, 5, 6], 6)
 
 function DeletionAllOccurrence(array, element) {
-    let counter = 1;
+    let counter = 0;
 
     console.log("Before Deletion: ", array)
 
     for (let i = 0; i < array.length; i++) {
-        if (array[i] === element) {
-            array[i] = array[i + counter]
+        if (array[i] !== element) {
+            array[counter] = array[i]
             counter++
         }
     }
 
-    array.length = array.length - counter
+    array.length = counter
     console.log("After Deletion: ", array)
 }
 
 DeletionAllOccurrence([0, 1, 3, 0, 2, 2, 4, 2], 2)
+
+
